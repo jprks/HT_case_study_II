@@ -32,39 +32,29 @@ C_1 = 4*sin(lam)/(2*lam + sin(2*lam)); % [-] - Coefficient C_1 for solution
 
 i = 1;
 j = 1;
-for t = 3000:100:6000
-    Fo = alp*t/L_c^2;
+for t = 10:100
+    Fo = alp*t(i)/L_c^2;
     
     for x = 0:0.001:1
-%         temp = F(x,Fo,lam,C_1);
-        T = T_inf + (T_i - T_inf)*C_1*exp(-lam^2*Fo)*cos(lam*x);
+        T = F(x,Fo,lam,C_1);
         
-        temperature(j,i) = T;
-        distance(j,i) = x;
+        temperature(j) = T;
+        distance(j) = x;
         j = j + 1;
     end
     
-    fourier_number(i) = Fo;
+    fourier_number(j) = Fo;
     time(i) = t;
     i = i + 1;
-    j = 1;
-end
-
-hold on
-grid on
-for i = 1:1:1001
-
-plot(distance(:,i),temperature(:,i));
-
 end
 
 %% Functions
-% 
-% function T = F(x,Fo,lam,C_1)
-% global T_inf T_i
-% 
-% T = T_inf + (T_i - T_inf)*C_1*exp(-lam^2*Fo)*cos(lam*x);
-% end
+
+function T = F(x,Fo,lam,C_1)
+global T_inf T_i
+
+T = T_inf + (T_i - T_inf)*C_1*exp(-lam^2*Fo)*cos(lam*x);
+end
 
 
 
