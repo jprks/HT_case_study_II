@@ -19,7 +19,7 @@ k_plastic = 0.27; % [W/(m K)] - Thermal conductivity of plastic wall
 cp = 837; % [J/(kg K)] - Specific heat for constant pressure
 rho = 2200; % [kg/m^3] - Density (ranges from 2200 -> 2400)
 h = 30; % [W/(m^2 K)] - Convective coefficient for air during fire
-L_perlite = 0.0254; % [m] - Length of safe wall
+L_perlite = 0.0239; % [m] - Length of safe wall
 L_plastic = 0.00127; % [m] - Length of plastic wall (assumed to be nylon 6/6)
 
 T_inf = 1116.483; % [K] - Temperature of the outside air temperature during fire
