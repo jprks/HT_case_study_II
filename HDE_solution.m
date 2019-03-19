@@ -1,9 +1,8 @@
-function [nominal_temp,nominal_Fo,nominal_Bi,nominal_Lam,nominal_C1] = HDE_solution(t,T_inf,T_i,L_PLASTIC,K_PLASTIC,H_AIR,K_PERLITE,L_PERLITE)
-global cp rho
+function [nominal_temp,nominal_Fo,nominal_Bi,nominal_Lam,nominal_C1] = HDE_solution(t,T_inf,T_i,L_PLASTIC,K_PLASTIC,H_AIR,K_PERLITE,L_PERLITE,RHO,CP)
 load coefficients
 R_eff_prime = 1/H_AIR + L_PLASTIC/K_PLASTIC; % [K/W] - Effective thermal resistance of convection and conduction on plastic wall
 U = 1/R_eff_prime; % [W/K] - Transforming R_eff_prime into a form that can be used for the HDE solution
-alp = K_PERLITE/(cp*rho); % [m^2/s] - Thermal diffusivity
+alp = K_PERLITE/(CP*RHO); % [m^2/s] - Thermal diffusivity
 L_c = L_PERLITE+L_PLASTIC; % [m] - Characteristic length
 Bi = U*L_c/K_PERLITE; % [-] - Biot number
 
