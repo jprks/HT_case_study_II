@@ -77,8 +77,13 @@ for i = 1:1:length(k_Perl)
     [solution_h_Air] = HDE_solution(TIME(1,1),T_inf(1,1),T_s_i(1,1),L_plastic,k_plastic,h_Air(i,1),k_perlite,L_perlite);
     [solution_k_Perl] = HDE_solution(TIME(1,1),T_inf(1,1),T_s_i(1,1),L_plastic,k_plastic,h,k_Perl(i,1),L_perlite);
     [solution_L_Perl] = HDE_solution(TIME(1,1),T_inf(1,1),T_s_i(1,1),L_plastic,k_plastic,h,k_perlite,L_Perl(i,1));
-    solutions(i,1:5) = [solution_L_HDPE solution_k_HDPE solution_h_Air solution_k_Perl solution_L_Perl];
     
+    solutions(i,1:5) = [solution_L_HDPE solution_k_HDPE solution_h_Air solution_k_Perl solution_L_Perl];
+    sol_Fo(i,1:5) = [L_HDPE_Fo k_HDPE_Fo h_Fo k_Perl_Fo L_Perl_Fo];
+    sol_Bi(i,1:5) = [L_HDPE_Bi k_HDPE_Bi h_Bi k_Perl_Bi L_Perl_Bi];
+    sol_Lam(i,1:5)= [L_HDPE_lam k_HDPE_lam h_lam k_Perl_lam L_Perl_lam];
+    sol_C1(i,1:5) = [L_HDPE_C1 k_HDPE_C1 h_C1 k_Perl_C1 L_Perl_C1];
+   
     sensitivity_L_HDPE = nominal_solution_fire - solution_L_HDPE;
     sensitivity_k_HDPE = nominal_solution_fire - solution_k_HDPE;
     sensitivity_h_Air = nominal_solution_fire - solution_h_Air;

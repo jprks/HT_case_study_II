@@ -19,7 +19,7 @@ Bi = U*L_c/K_PERLITE; % [-] - Biot number
 
 for i = 2:1:length(coefficients)
     if Bi > coefficients(i-1,1) && Bi < coefficients(i,1)
-        lam = coefficients(i-1,2) + (Bi - coefficients(i-1,1))*(coefficients(i,2) - coefficients(i-1,2))/(coefficients(i,1) - coefficients(i-1,1));
+        lam = coefficients(i-1,2) + (Bi - coefficients(i-1,1))*(
     end
 end
 
